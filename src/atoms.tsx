@@ -1,8 +1,16 @@
-
-
 import { atom, selector } from "recoil";
-
-export const minuteState = atom({
+interface IToDoState {
+  [key: string]: string[];
+}
+export const toDoState = atom<IToDoState>({
+  key: "toDo",
+  default: {
+    to_do: ["a", "b", "c", "d", "e", "f"],
+    doing: [],
+    done: [],
+  },
+});
+/* export const minuteState = atom({
   key: "minutes",
   default: 0,
 });
@@ -17,4 +25,4 @@ export const hourSelector = selector({
     const minutes = Number(newValue) * 60;
     set(minuteState, minutes);
   },
-});
+}); */
